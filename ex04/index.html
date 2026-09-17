@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic DOM Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #333;
+            min-height: 100px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .modified {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic DOM Manipulation</h2>
+
+    <button id="addBtn">Add Element</button>
+    <button id="removeBtn">Remove Element</button>
+    <button id="modifyBtn">Modify Element</button>
+
+    <div id="container">
+        <p id="para1">This is the first paragraph.</p>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const addBtn = document.getElementById("addBtn");
+        const removeBtn = document.getElementById("removeBtn");
+        const modifyBtn = document.getElementById("modifyBtn");
+
+        // Add a new paragraph
+        addBtn.addEventListener("click", function () {
+            const p = document.createElement("p");
+
+            p.textContent = "New paragraph added dynamically!";
+            container.appendChild(p);
+        });
+
+        // Remove the last paragraph
+        removeBtn.addEventListener("click", function () {
+            if (container.lastElementChild) {
+                container.removeChild(container.lastElementChild);
+            }
+        });
+
+        // Modify the first paragraph
+        modifyBtn.addEventListener("click", function () {
+            const para = document.getElementById("para1");
+
+            para.textContent = "This paragraph has been modified!";
+            para.classList.add("modified");
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
