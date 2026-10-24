@@ -8,16 +8,11 @@
 - `doPost()` - reads the form values and checks them (admin / 12345); shows success or failure message
 - `web.xml` - maps the servlet class to the URL `/LoginServlet`
 
-**Folder layout (Eclipse Dynamic Web Project):**
-```
-src/LoginServlet.java
-WebContent/login.html
-WebContent/WEB-INF/web.xml
-```
+**Files:** `LoginServlet.java`, `login.html`, `web.xml` (in Eclipse put the Java file in `src`, `login.html` in `WebContent`, `web.xml` in `WebContent/WEB-INF`)
 
 **Run**
 1. Eclipse -> File -> New -> Dynamic Web Project (name it `LoginApp`)
-2. Copy `LoginServlet.java` into `src`, `login.html` into `WebContent`, `web.xml` into `WebContent/WEB-INF`
+2. Copy the files into the folders mentioned above
 3. Right click project -> Run As -> Run on Server (Apache Tomcat)
 4. Open `http://localhost:8080/LoginApp/login.html`
 

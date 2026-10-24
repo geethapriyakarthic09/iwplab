@@ -1,0 +1,5 @@
+1. Open http://localhost:8080/<project-name>/login.html  -> login form is displayed.
+2. username = admin, password = 12345  -> "Login Successful! Welcome, admin."
+3. Any other values                    -> "Login Failed! Invalid username or password." + Try Again link.
+
+(Add your own browser screenshot as output.png in this folder.)
