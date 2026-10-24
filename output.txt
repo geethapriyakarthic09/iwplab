@@ -1,0 +1,12 @@
+Request:  GET http://localhost:8080/students/101
+Browser:  Student{id=101, name='John Doe'}
+
+Console output:
+Executing method: StudentService.getStudentById(..)
+Arguments:
+  - 101
+Method StudentService.getStudentById(..) executed successfully
+Return Value: Student{id=101, name='John Doe'}
+Execution Time: 2 ms
+
+(Execution time may differ on your machine. Add your own console screenshot as output.png.)
