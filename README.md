@@ -1,20 +1,28 @@
-# Ex 08 - Aspect-Oriented Programming: Logging Method Execution
+# Ex 05 - Servlet-based Login System (GET and POST)
 
-**Aim:** Use Spring AOP to log method name, arguments, return value and execution time without touching the business code.
+**Aim:** Develop a servlet-based login system that authenticates a user using GET and POST methods.
 
-**Files**
-- `service/StudentService.java` - business methods (getStudentById, registerStudent)
-- `aspect/LoggingAspect.java` - `@Aspect` class with `@Around` advice; pointcut `execution(* com.example.aopdemo.service.*.*(..))` = every method in the service package
-- `controller/StudentController.java` - REST endpoints to trigger the service
-- `pom.xml` - needs `spring-boot-starter-web` and `spring-boot-starter-aop`
+**How it works**
+- `login.html` - form that sends username/password to `LoginServlet` using POST
+- `doGet()` - displays the login form
+- `doPost()` - reads the form values and checks them (admin / 12345); shows success or failure message
+- `web.xml` - maps the servlet class to the URL `/LoginServlet`
 
-**AOP terms (viva):** Aspect = logging class, Advice = the code that runs (`@Around`), Pointcut = which methods are intercepted, JoinPoint = the method being executed, `proceed()` = runs the real method.
+**Folder layout (Eclipse Dynamic Web Project):**
+```
+src/LoginServlet.java
+WebContent/login.html
+WebContent/WEB-INF/web.xml
+```
 
-**Run:** `mvn spring-boot:run`, then open `http://localhost:8080/students/101` and watch the console.
-For the second method: `curl -X POST "http://localhost:8080/students/register?name=Raja"`
+**Run**
+1. Eclipse -> File -> New -> Dynamic Web Project (name it `LoginApp`)
+2. Copy `LoginServlet.java` into `src`, `login.html` into `WebContent`, `web.xml` into `WebContent/WEB-INF`
+3. Right click project -> Run As -> Run on Server (Apache Tomcat)
+4. Open `http://localhost:8080/LoginApp/login.html`
 
-**Output:** see `output.txt` (add your console screenshot as `output.png`).
+**Note:** this uses `javax.servlet` so it needs **Tomcat 9 or lower**. For Tomcat 10+, change every `javax.servlet` to `jakarta.servlet` in the Java file and use the jakarta namespace in `web.xml`.
 
-**Result:** Spring AOP successfully intercepts the service methods and logs their execution details. Logging (a cross-cutting concern) is kept separate from business logic.
+**Output:** see `output.txt` (add your screenshot).
 
-**Note:** the manual's Result section mentions `@Before` and `@After`, but the code only uses `@Around`. `@Around` alone covers before + after, so this README says `@Around`.
+**Result:** Thus, a Servlet-based login system was successfully developed to handle user authentication using GET and POST methods.
